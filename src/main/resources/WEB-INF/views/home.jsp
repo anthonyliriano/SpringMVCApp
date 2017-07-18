@@ -3,9 +3,10 @@
 <html>
     <head>
         <title>Home</title>
-        <link rel="stylesheet"
-            type="text/css"
-            href="">
+        
+        <%--Bootstrap--%>
+        <link href="/webjars/bootstrap/4.0.0-alpha/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
     </head>
 
 <body>
