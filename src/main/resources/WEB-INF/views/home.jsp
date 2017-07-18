@@ -1,4 +1,4 @@
-<%@ taglib prefix="c" uri="http://mvnrepository.com/artifact/javax.servlet.jsp.jstl/jstl/1.2" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page session="true" %>
 <html>
     <head>
