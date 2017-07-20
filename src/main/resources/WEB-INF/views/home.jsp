@@ -7,12 +7,16 @@
         <%--Bootstrap--%>
         <link rel="stylesheet" href="webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
+        <%--Main CSS--%>
+        <link rel="stylesheet" href="/resources/css/main.css">
+
     <style>
 
     </style>
     </head>
 
 <body>
+<%--Navigation Menu--%>
     <nav class="navbar navbar-toggleable-md bg-inverse">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,6 +34,7 @@
             </ul>
         </div>
     </nav>
+<%--End Navigation Menu--%>
 
     <div class="container">
         <div class="col-md-10">
@@ -45,8 +50,6 @@
         </div>
 
     </div>
-
-
 
 <script src="webjars/jquery/3.2.1/jquery.min.js"></script>
 <script src="webjars/tether/1.4.0/js/tether.min.js"></script>
