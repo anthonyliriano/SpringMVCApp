@@ -39,7 +39,12 @@
     </div>
 </nav>
 
-
+<div class="container">
+    <div class="col-md-6">
+        <span><c:out value='${test}' />
+        </span>
+    </div>
+</div>
 
 
 

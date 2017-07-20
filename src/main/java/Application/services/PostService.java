@@ -2,7 +2,6 @@ package Application.services;
 
 import Application.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,7 +9,7 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PostService {
-    //@Autowired
+    @Autowired
     PostRepository postRepository;
 
     public void getPost(){
