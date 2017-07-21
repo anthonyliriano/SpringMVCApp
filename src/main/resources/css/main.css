@@ -1,3 +1,7 @@
 h1{
     color: red;
 }
+/*Home page Card */
+.card{
+    margin: 5px 0 0 5px;
+}

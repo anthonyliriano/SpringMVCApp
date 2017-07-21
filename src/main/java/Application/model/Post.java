@@ -5,13 +5,18 @@ import org.springframework.stereotype.Component;
 /**
  * Created by aliriano on 7/19/17.
  */
-@Component
 public class Post {
     private String title;
     private String author;
     private String content;
     private String votes;
 
+    public Post(String title, String author, String content, String votes){
+        this.title = title;
+        this.author = author;
+        this.content = content;
+        this.votes = votes;
+    }
     public String getTitle() {
         return title;
     }

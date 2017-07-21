@@ -1,11 +1,14 @@
 package Application.controllers;
 
+import Application.model.Post;
 import Application.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import java.util.List;
 
 /**
  * Created by aliriano on 7/18/17.
@@ -19,7 +22,11 @@ public class PostController {
     @RequestMapping("/createpost")
     public String createPost(Model model){
         model.addAttribute("test", "This is just a Test.");
-        postService.getPost();
+
+        model.addAttribute("Post", postService.getPost());
+
+
+
         return "create_post";
     }
 }

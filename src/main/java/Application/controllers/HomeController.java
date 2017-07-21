@@ -1,6 +1,9 @@
 package Application.controllers;
 
+import Application.services.PostService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -9,8 +12,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 
+    @Autowired
+    PostService postService;
+
     @RequestMapping("/")
-    public String getHome(){
+    public String getHome(Model model){
+        model.addAttribute("Post", postService.getPost());
+
+        System.out.println(postService.getPost().size());
+
         return "home";
     }
 }
