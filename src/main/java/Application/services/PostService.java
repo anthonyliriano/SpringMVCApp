@@ -19,4 +19,8 @@ public class PostService {
       return postRepository.getAllPosts();
 
     }
+
+    public void addPost(String title, String author, String content, String votes){
+        postRepository.addPost(title, author, content, votes);
+    }
 }

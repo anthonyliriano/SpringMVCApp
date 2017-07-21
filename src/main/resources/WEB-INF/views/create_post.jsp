@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="true" %>
 <html>
 <head>
@@ -30,7 +31,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="/createpost/">Submit a Post <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/post/create">Submit a Post <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Link</a>
@@ -40,7 +41,41 @@
 </nav>
 
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style="margin-top: 10px;">
 
+            <h2>Submit a Post</h2>
+
+        <form:form method="post" action="/post/submit" modelAttribute="Post">
+
+            <%--Post Title--%>
+            <div class="form-group row">
+                <label for="title" class="col-1 col-form-label">Title</label>
+                <div class="col-4">
+                    <form:input path="title" class="form-control"  type="text" id="title" />
+                </div>
+
+            <%--Post Author--%>
+
+                <label for="author" class="col-1 col-form-label">Author</label>
+                <div class="col-4">
+                    <form:input path="author" class="form-control" type="text" value="John Doe" id="author" />
+                </div>
+            </div>
+
+            <%--Post Content--%>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <form:textarea path="content" class="form-control" id="content" rows="3"></form:textarea>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Submit">
+
+        </form:form>
+        </div>
+    </div>
+</div>
 
 
 

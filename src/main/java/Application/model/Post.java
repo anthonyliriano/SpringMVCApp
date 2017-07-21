@@ -11,6 +11,8 @@ public class Post {
     private String content;
     private String votes;
 
+    public Post(){
+    }
     public Post(String title, String author, String content, String votes){
         this.title = title;
         this.author = author;
