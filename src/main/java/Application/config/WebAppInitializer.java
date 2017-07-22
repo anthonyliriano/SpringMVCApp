@@ -14,7 +14,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
 
     @Override // Gets  ApplicationContext by the ContextListener
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[]{ RootConfig.class };
+        return new Class[]{ RootConfig.class, WebSecurityConfig.class };
     }
 
     @Override  // Gets ApplicationContext from DispatacherServlet w/ defined beans from WebConfig Class..
