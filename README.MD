@@ -1,13 +1,14 @@
-## Synopsis
-This project is a simple MVC application using Spring MVC. The idea behind this project was to create an application that would allow users to enter random posts.
+## Overview
+A simple blog application using Spring MVC. The idea behind this project was to create an application that would allow registered users to submit random posts. Also implementing a voting system(upvote/downvote)
 
 
-## Prerequisites
+## Tools
 - JDK 8
 - Maven 3
+- IntelliJ
 
 
-## Run the Project
+## Running the Project
 
 ..
 
