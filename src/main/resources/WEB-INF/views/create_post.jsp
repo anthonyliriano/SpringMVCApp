@@ -21,24 +21,9 @@
 </head>
 
 <body>
-<%--<div class="container-fluid">--%>
-<nav class="navbar navbar-toggleable-md navbar-inverse bg-primary">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="/">Navbar</a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/post/create">Submit a Post <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<%--Navigation Menu--%>
+<jsp:include page="templates/navbar.jsp" />
 
 
 <div class="container">
@@ -77,11 +62,10 @@
     </div>
 </div>
 
+<%--Footer--%>
+<jsp:include page="templates/footer.jsp" />
 
-
-<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
-<script src="/webjars/tether/1.4.0/js/tether.min.js"></script>
-<script src="/webjars/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<%--Form Validation--%>
 <script src="/webjars/jquery-validation/1.16.0/jquery.validate.min.js"></script>
 <script>
     $(document).ready(function () {
