@@ -10,3 +10,9 @@ This project is a simple MVC application using Spring MVC. The idea behind this 
 ## Run the Project
 
 ..
+
+## Open Source Components used
+- Spring Framework
+- Bootstrap
+- jQuery
+- jQuery Validation
