@@ -15,11 +15,12 @@ public class LoginController {
     @RequestMapping("/login")
     public String getLoginPage(Model model){
         model.addAttribute("User", new User());
+        System.out.println("Get '/' called");
         return "login";
     }
     @PostMapping("/login")
     public String autheticateUser(@ModelAttribute User user){
-        System.out.println(user.getUsername());
-        return "home";
+        System.out.println("Post '/' called");
+        return "login";
     }
 }

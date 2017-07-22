@@ -16,7 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Bean
     public UserDetailsService userDetailsService(){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user").password("admin").roles("USER").build());
+        manager.createUser(User.withUsername("1").password("1").roles("USER").build());
 
         return manager;
     }
@@ -28,10 +28,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                     .antMatchers("/").permitAll() //permit everyone to home
-                    .anyRequest().authenticated() //Any other request must be autheticated
+                    .antMatchers("/post/*").hasRole("USER")
+                    .antMatchers("/login/*").permitAll()
+                    //.anyRequest().authenticated() //Any other request must be autheticated
                     .and()
                 .formLogin()
                     .loginPage("/login")//Use supplied loginPage
+                    .loginProcessingUrl("/login")
+                    .defaultSuccessUrl("/")
                     .permitAll(); // permit everyone to the loginPage
     }
 

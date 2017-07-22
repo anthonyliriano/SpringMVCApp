@@ -26,14 +26,15 @@
     <div class="row">
         <form:form method="post" action="/login" class="form-signin" modelAttribute="User">
             <h3 class="form-signin-heading">Please sign in</h3>
+            <h4><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></h4>
 
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" path="username" id="inputUsername" class="form-control" placeholder="Username" />
+            <input type="text" path="username" id="inputUsername" class="form-control" name="username" />
 
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" path="password" id="inputPassword" class="form-control" placeholder="Password" />
+            <input type="password" path="password" id="inputPassword" class="form-control" name="password" />
 
-            <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+            <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />
         </form:form>
     </div>
 </div>
