@@ -47,20 +47,20 @@
 
             <h2>Submit a Post</h2>
 
-        <form:form method="post" action="/post/submit" modelAttribute="Post">
+        <form:form method="post" action="/post/submit" modelAttribute="Post" id="postForm">
 
             <%--Post Title--%>
             <div class="form-group row">
-                <label for="title" class="col-1 col-form-label">Title</label>
+                <label for="title" class="col-1 col-form-label ">Title</label>
                 <div class="col-4">
-                    <form:input path="title" class="form-control"  type="text" id="title" />
+                    <form:input path="title" class="form-control"  type="text" id="title" name="title" />
                 </div>
 
             <%--Post Author--%>
 
                 <label for="author" class="col-1 col-form-label">Author</label>
                 <div class="col-4">
-                    <form:input path="author" class="form-control" type="text" value="John Doe" id="author" />
+                    <form:input path="author" class="form-control" type="text" id="author" placeholder="John Doe"  />
                 </div>
             </div>
 
@@ -79,9 +79,40 @@
 
 
 
+<script src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+<script src="/webjars/tether/1.4.0/js/tether.min.js"></script>
+<script src="/webjars/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery-validation/1.16.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
 
-<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        $('#postForm').validate({
+            rules: {
+                title: {
+                    minlength: 5,
+                    required: true
+                },
+                author: {
+                    minlength: 5,
+                    required: true
+                },
+                content: {
+                    minlength: 2,
+                    required: true
+                }
+            },
+            highlight: function (element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+            },
+            success: function (element) {
+                element.text('OK!').addClass('valid')
+                    .closest('.control-group').removeClass('error').addClass('success');
+            }
+        });
+
+    });
+</script>
+
+
 </body>
 </html>
