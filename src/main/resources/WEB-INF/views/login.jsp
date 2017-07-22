@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page session="true" %>
 <html>
 <head>
@@ -23,17 +24,17 @@
 
 <div class="container">
     <div class="row">
-        <form class="form-signin">
-            <h2 class="form-signin-heading">Please sign in</h2>
+        <form:form method="post" action="/login" class="form-signin" modelAttribute="User">
+            <h3 class="form-signin-heading">Please sign in</h3>
 
             <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" id="inputUsername" class="form-control" placeholder="Username" />
+            <input type="text" path="username" id="inputUsername" class="form-control" placeholder="Username" />
 
             <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" id="inputPassword" class="form-control" placeholder="Password" />
+            <input type="password" path="password" id="inputPassword" class="form-control" placeholder="Password" />
 
             <button class="btn btn-primary btn-block" type="submit">Sign in</button>
-        </form>
+        </form:form>
     </div>
 </div>
 
