@@ -10,7 +10,7 @@
                 <a class="nav-link" href="/post/create">Submit a Post <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="#">Login</a>
             </li>
         </ul>
     </div>
