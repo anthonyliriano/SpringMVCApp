@@ -52,6 +52,13 @@
             <scope>provided</scope>
         </dependency>
 
+        <!--Form Validation-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>6.0.0.CR3</version>
+        </dependency>
+
         <!--Embedded Instance of Tomcat-->
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
