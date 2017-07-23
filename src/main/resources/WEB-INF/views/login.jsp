@@ -27,13 +27,13 @@
         <form:form method="post" action="/login" class="form-signin" modelAttribute="User">
             <h3 class="form-signin-heading">Please sign in</h3>
             <h4><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></h4>
+            
+            <form:label path="" for="username">Username</form:label>
+            <form:input path="username" id="username" cssClass="form-control"/>
 
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" path="username" id="inputUsername" class="form-control" name="username" />
-
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" path="password" id="inputPassword" class="form-control" name="password" />
-
+            <form:label path="" for="password">Password</form:label>
+            <form:password path="password" id="password" cssClass="form-control" />
+            
             <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />
         </form:form>
     </div>
