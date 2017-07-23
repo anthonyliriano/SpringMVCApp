@@ -6,10 +6,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.validation.Valid;
 import java.util.List;
 
 /**
@@ -23,24 +25,25 @@ public class PostController {
 
     @RequestMapping("/post/create")
     public String createPost(Model model){
-        model.addAttribute("test", "This is just a Test.");
-
         model.addAttribute("Post", new Post());
 
         return "create_post";
     }
 
     @PostMapping("/post/submit")
-    public String submitPost(@ModelAttribute("Post") Post post){
-        String titleOfPost = post.getTitle();
-        String authorOfPost = post.getAuthor();
-        String contentOfPost = post.getContent();
-        String votesOfPost =  "10";
+    public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult, Model model){
 
-        //Add Post
-        postService.addPost(titleOfPost, authorOfPost, contentOfPost, votesOfPost);
+        if (bindingResult.hasErrors()){
+            System.out.println(bindingResult.getAllErrors());
+            return "create_post";
+        }else {
+            //Add Post if there are no errors
+            postService.addPost(post);
+        }
 
-        return "create_post";
+        //Error on Home page unless this model is passed..
+        model.addAttribute("Post", postService.getPost());
+        return "home";
     }
 }
 
