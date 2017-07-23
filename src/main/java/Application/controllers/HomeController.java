@@ -19,8 +19,6 @@ public class HomeController {
     public String getHome(Model model){
         model.addAttribute("Post", postService.getPost());
 
-        System.out.println(postService.getPost().size());
-
         return "home";
     }
 }
