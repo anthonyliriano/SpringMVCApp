@@ -1,10 +1,17 @@
 package Application.model;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by aliriano on 7/22/17.
  */
 public class User {
+
+    @NotNull
     private String username;
+
+    @NotNull
     private String password;
 
     public User(){

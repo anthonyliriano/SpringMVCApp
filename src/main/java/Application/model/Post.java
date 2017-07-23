@@ -2,13 +2,26 @@ package Application.model;
 
 import org.springframework.stereotype.Component;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 /**
  * Created by aliriano on 7/19/17.
  */
 public class Post {
+
+    @NotNull
+    @Size(min = 5, max = 30)
     private String title;
+
+    @NotNull
+    @Size(min = 2, max = 30)
     private String author;
+
+    @NotNull
+    @Size(min = 50, max = 400)
     private String content;
+
     private String votes;
 
     public Post(){
