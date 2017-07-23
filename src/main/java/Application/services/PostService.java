@@ -20,7 +20,8 @@ public class PostService {
 
     }
 
-    public void addPost(String title, String author, String content, String votes){
-        postRepository.addPost(title, author, content, votes);
+    public void addPost(Post post){
+        postRepository.addPost(post);
+
     }
 }

@@ -8,7 +8,7 @@
         <link rel="stylesheet" href="/resources/css/main.css">
 
         <%--Bootstrap--%>
-        <link rel="stylesheet" href="webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
 
 

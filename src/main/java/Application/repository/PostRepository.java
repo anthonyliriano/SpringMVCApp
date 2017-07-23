@@ -31,8 +31,9 @@ public class PostRepository {
         return post;
     }
 
-    public void addPost(String title, String author, String content, String votes){
-        post.add(new Post(title, author, content, votes));
+    public void addPost(Post submittedPost){
+        post.add(new Post(submittedPost.getTitle(),
+                submittedPost.getAuthor(), submittedPost.getContent(), submittedPost.getVotes()));
     }
 
 

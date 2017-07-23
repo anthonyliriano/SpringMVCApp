@@ -28,10 +28,10 @@
             <h3 class="form-signin-heading">Please sign in</h3>
             <h4><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></h4>
             
-            <form:label path="" for="username">Username</form:label>
+            <form:label path="username">Username</form:label>
             <form:input path="username" id="username" cssClass="form-control"/>
 
-            <form:label path="" for="password">Password</form:label>
+            <form:label path="password">Password</form:label>
             <form:password path="password" id="password" cssClass="form-control" />
             
             <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />

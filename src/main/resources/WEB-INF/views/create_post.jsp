@@ -32,30 +32,31 @@
 
             <h2>Submit a Post</h2>
 
-        <form:form method="post" action="/post/submit" modelAttribute="Post" id="postForm">
+        <form:form method="post" action="/post/submit" commandName="Post" id="postForm">
 
             <%--Post Title--%>
             <div class="form-group row">
-                <label for="title" class="col-1 col-form-label ">Title</label>
+
+                <form:label path="title" cssClass="col-1 col-form-label">Title</form:label>
                 <div class="col-4">
-                    <form:input path="title" class="form-control"  type="text" id="title" name="title" />
+                    <form:input path="title" cssClass="form-control"/>
                 </div>
 
             <%--Post Author--%>
 
-                <label for="author" class="col-1 col-form-label">Author</label>
+                <form:label path="author" cssClass="col-1 col-form-label">Author</form:label>
                 <div class="col-4">
-                    <form:input path="author" class="form-control" type="text" id="author" placeholder="John Doe"  />
+                    <form:input path="author" cssClass="form-control"  />
                 </div>
             </div>
 
             <%--Post Content--%>
             <div class="form-group">
-                <label for="content">Content</label>
-                <form:textarea path="content" class="form-control" id="content" rows="3"></form:textarea>
+                <form:label path="content">Content</form:label>
+                <form:textarea path="content" cssClass="form-control" rows="3"></form:textarea>
             </div>
 
-            <input class="btn btn-primary" type="submit" value="Submit">
+            <input type="submit" class="btn btn-primary"  value="Submit">
 
         </form:form>
         </div>
@@ -67,35 +68,36 @@
 
 <%--Form Validation--%>
 <script src="/webjars/jquery-validation/1.16.0/jquery.validate.min.js"></script>
-<script>
-    $(document).ready(function () {
+<%--<script>--%>
+    <%--$(document).ready(function () {--%>
 
-        $('#postForm').validate({
-            rules: {
-                title: {
-                    minlength: 5,
-                    required: true
-                },
-                author: {
-                    minlength: 5,
-                    required: true
-                },
-                content: {
-                    minlength: 2,
-                    required: true
-                }
-            },
-            highlight: function (element) {
-                $(element).closest('.control-group').removeClass('success').addClass('error');
-            },
-            success: function (element) {
-                element.text('OK!').addClass('valid')
-                    .closest('.control-group').removeClass('error').addClass('success');
-            }
-        });
+        <%--$('#postForm').validate({--%>
+            <%--rules: {--%>
+                <%--title: {--%>
+                    <%--minlength: 5,--%>
+                    <%--required: true--%>
+                <%--},--%>
+                <%--author: {--%>
+                    <%--minlength: 5,--%>
+                    <%--required: true--%>
+                <%--},--%>
+                <%--content: {--%>
+                    <%--minlength: 2,--%>
+                    <%--maxlength: 400,--%>
+                    <%--required: true--%>
+                <%--}--%>
+            <%--},--%>
+            <%--highlight: function (element) {--%>
+                <%--$(element).closest('.control-group').removeClass('success').addClass('error');--%>
+            <%--},--%>
+            <%--success: function (element) {--%>
+                <%--element.text('OK!').addClass('valid')--%>
+                    <%--.closest('.control-group').removeClass('error').addClass('success');--%>
+            <%--}--%>
+        <%--});--%>
 
-    });
-</script>
+    <%--});--%>
+<%--</script>--%>
 
 
 </body>
