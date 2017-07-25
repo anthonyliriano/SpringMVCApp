@@ -68,36 +68,38 @@
 
 <%--Form Validation--%>
 <script src="/webjars/jquery-validation/1.16.0/jquery.validate.min.js"></script>
-<%--<script>--%>
-    <%--$(document).ready(function () {--%>
+<script>
+    $(document).ready(function () {
 
-        <%--$('#postForm').validate({--%>
-            <%--rules: {--%>
-                <%--title: {--%>
-                    <%--minlength: 5,--%>
-                    <%--required: true--%>
-                <%--},--%>
-                <%--author: {--%>
-                    <%--minlength: 5,--%>
-                    <%--required: true--%>
-                <%--},--%>
-                <%--content: {--%>
-                    <%--minlength: 2,--%>
-                    <%--maxlength: 400,--%>
-                    <%--required: true--%>
-                <%--}--%>
-            <%--},--%>
-            <%--highlight: function (element) {--%>
-                <%--$(element).closest('.control-group').removeClass('success').addClass('error');--%>
-            <%--},--%>
-            <%--success: function (element) {--%>
-                <%--element.text('OK!').addClass('valid')--%>
-                    <%--.closest('.control-group').removeClass('error').addClass('success');--%>
-            <%--}--%>
-        <%--});--%>
+        $('#postForm').validate({
+            rules: {
+                title: {
+                    minlength: 5,
+                    maxlength: 30,
+                    required: true
+                },
+                author: {
+                    minlength: 5,
+                    maxlength: 30,
+                    required: true
+                },
+                content: {
+                    minlength: 50,
+                    maxlength: 400,
+                    required: true
+                }
+            },
+            highlight: function (element) {
+                $(element).closest('.control-group').removeClass('success').addClass('error');
+            },
+            success: function (element) {
+                element.text('OK!').addClass('valid')
+                    .closest('.control-group').removeClass('error').addClass('success');
+            }
+        });
 
-    <%--});--%>
-<%--</script>--%>
+    });
+</script>
 
 
 </body>
