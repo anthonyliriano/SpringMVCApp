@@ -11,37 +11,89 @@
     <%--Bootstrap--%>
     <link rel="stylesheet" href="webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
-
-
-    <style>
-
-    </style>
 </head>
-
+<style>
+    .form-control-feedback{
+        font-size: 12px;
+    }
+    .form-group{
+        height: 90px;
+    }
+</style>
 <body>
 <%--Navigation Menu--%>
 <jsp:include page="templates/navbar.jsp" />
 
 <div class="container">
-    <div class="row">
-        <form:form method="post" action="/login" class="form-signin" modelAttribute="User">
-            <h3 class="form-signin-heading">Please sign in</h3>
-            <h4><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></h4>
-            
-            <form:label path="username">Username</form:label>
-            <form:input path="username" id="username" cssClass="form-control"/>
+    <div class="row justify-content-md-center">
+        <div class="col-md-6">
+            <form:form method="post" action="/login" id="signinForm" modelAttribute="User">
+                <h3 class="form-signin-heading">Please sign in</h3>
+<%--
+                    <div class="alert alert-danger" role="alert">
+                        <strong><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></strong>
+                    </div>
+ --%>
+                <div class="form-group">
+                    <form:label path="username">Username</form:label>
+                    <form:input path="username" cssClass="form-control"/>
+                    <div class="form-control-feedback"></div>
+                </div>
 
-            <form:label path="password">Password</form:label>
-            <form:password path="password" id="password" cssClass="form-control" />
-            
-            <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />
-        </form:form>
+                <div class="form-group">
+                    <form:label path="password">Password</form:label>
+                    <form:password path="password" class="form-control" cssClass="form-control" />
+                    <div class="form-control-feedback"></div>
+                </div>
+
+
+                <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />
+            </form:form>
+        </div>
     </div>
 </div>
 
 <%--Footer--%>
 <jsp:include page="templates/footer.jsp" />
+<script src="/webjars/jquery-validation/1.16.0/jquery.validate.min.js"></script>
+<script>
+    $(document).ready(function () {
 
+        $('#signinForm').validate({
+            errorElement: 'span',
+            errorClass: 'form-control-feedback',
+            rules: {
+                username: {
+                    minlength: 1,
+                    maxlength: 30,
+                    required: true
+                },
+                password: {
+                    minlength: 5,
+                    maxlength: 30,
+                    required: true
+                }
+            },
+
+            highlight: function (element) {
+                $(element).closest('.form-group').removeClass('success').addClass('error');
+
+                //Add Bootstrap Validation Indicator..
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
+
+            },
+            success: function (element) {
+                element.addClass('valid')
+                    .closest('.form-group').removeClass('error').addClass('success');
+
+                //Remove Bootstrap has-warning & add has-success
+                element.closest('.form-group').removeClass('has-danger').addClass('has-success');
+
+            }
+        });
+
+    });
+</script>
 </body>
 </html>
 
