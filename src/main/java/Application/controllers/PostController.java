@@ -41,7 +41,7 @@ public class PostController {
             postService.addPost(post);
         }
 
-        //Error on Home page unless this model is passed..
+        //Error on Home page unless this model attribute is passed..
         model.addAttribute("Post", postService.getPost());
         return "home";
     }
