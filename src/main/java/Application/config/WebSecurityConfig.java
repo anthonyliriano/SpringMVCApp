@@ -18,6 +18,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
         manager.createUser(User.withUsername("user").password("password").roles("USER").build());
 
+
+
         return manager;
     }
     @Override
@@ -37,6 +39,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/");
 //                    .permitAll(); // permit everyone to the loginPage
+
+
     }
 
 }
