@@ -11,8 +11,6 @@
         <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
         <link rel="stylesheet" href="/webjars/bootstrap-glyphicons/bdd2cbfba0/css/bootstrap-glyphicons.css">
 
-
-
     <style>
 
     </style>
@@ -32,6 +30,10 @@
                         <a href="/post/view/${item.getPostId()}">
                             ${item.getTitle()}
                         </a>
+                        <small>
+                                ${item.getLocalDateTime().toLocalDate()}
+                                ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
+                        </small>
                     </h4>
                     <h6 class="card-subtitle mb-2 text-muted">${item.getAuthor()}</h6>
                     <p class="card-text">${item.getContent()}</p>

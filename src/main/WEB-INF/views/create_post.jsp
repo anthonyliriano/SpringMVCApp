@@ -4,20 +4,9 @@
 <html>
 <head>
     <title>Create Post</title>
-
-    <%--Bootstrap--%>
-    <!-- Latest compiled and minified CSS -->
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">--%>
-
+    <%--Boostrap--%>
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
-    <!-- Optional theme -->
-    <%--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">--%>
 
-    <!-- Latest compiled and minified JavaScript -->
-    <%--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
-    <style>
-
-    </style>
 </head>
 
 <body>
@@ -32,7 +21,7 @@
 
             <h2>Submit a Post</h2>
 
-        <form:form method="post" action="/post/submit" commandName="Post" id="postForm">
+        <form:form method="post" action="/post/submit/" commandName="Post" id="postForm">
 
             <%--Post Title--%>
             <div class="form-group row">
@@ -43,7 +32,6 @@
                 </div>
 
             <%--Post Author--%>
-
                 <form:label path="author" cssClass="col-1 col-form-label">Author</form:label>
                 <div class="col-4">
                     <form:input path="author" cssClass="form-control"  />

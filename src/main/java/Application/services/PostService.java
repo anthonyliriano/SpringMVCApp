@@ -29,5 +29,6 @@ public class PostService {
     public Post getPostById(UUID postId){
 
        return postRepository.getPostById(postId);
+
     }
 }

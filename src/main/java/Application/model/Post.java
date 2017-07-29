@@ -1,9 +1,8 @@
 package Application.model;
 
-import org.springframework.stereotype.Component;
-
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 /**
@@ -12,6 +11,7 @@ import java.util.UUID;
 public class Post {
 
     private UUID postId;
+    private LocalDateTime localDateTime;
 
     @NotNull
     @Size(min = 5, max = 30)
@@ -29,7 +29,8 @@ public class Post {
 
     public Post(){
     }
-    public Post(UUID postId, String title, String author, String content, String votes){
+    public Post(UUID postId, LocalDateTime dateTime, String title, String author, String content, String votes){
+        this.localDateTime = dateTime;
         this.postId = postId;
         this.title = title;
         this.author = author;
@@ -43,6 +44,14 @@ public class Post {
 
     public void setPostId(UUID postId) {
         this.postId = postId;
+    }
+
+    public LocalDateTime getLocalDateTime() {
+        return localDateTime;
+    }
+
+    public void setLocalDateTime(LocalDateTime localDateTime) {
+        this.localDateTime = localDateTime;
     }
 
     public String getTitle() {

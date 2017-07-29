@@ -27,7 +27,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-6">
-            <form:form method="post" action="/login" id="signinForm" modelAttribute="User">
+            <form:form method="post" action="${loginProcessingUrl}" id="signinForm" modelAttribute="User">
                 <h3 class="form-signin-heading">Please sign in</h3>
 <%--
                     <div class="alert alert-danger" role="alert">

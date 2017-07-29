@@ -1,10 +1,9 @@
 package Application.repository;
 
 import Application.model.Post;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -20,12 +19,12 @@ public class PostRepository {
 
     public PostRepository(){
         //Manually created Posts.
-        post.add(new Post(UUID.randomUUID(),"Post Number 1","Jack","Content_1","1"));
-        post.add(new Post(UUID.randomUUID(),"Post Number 2","John","Content_2","0"));
-        post.add(new Post(UUID.randomUUID(),"Post Number 3","Jenny","Content_3","10"));
-        post.add(new Post(UUID.randomUUID(),"Post Number 4","Jim","Content_4","11"));
-        post.add(new Post(UUID.randomUUID(),"Post Number 5","Joey","Content 5","0"));
-        post.add(new Post(UUID.randomUUID(),"Post Number 6","Joey","Content 5","0"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(220),"Post Number 1","Jack","Content_1","1"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(139),"Post Number 2","John","Content_2","0"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(181),"Post Number 3","Jenny","Content_3","10"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(103), "Post Number 4","Jim","Content_4","11"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(67),"Post Number 5","Joey","Content 5","0"));
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(43),"Post Number 6","Joey","Content 5","0"));
     }
 
     public List<Post> getAllPosts(){
@@ -33,7 +32,7 @@ public class PostRepository {
     }
 
     public void addPost(Post submittedPost){
-        post.add(new Post(submittedPost.getPostId(),submittedPost.getTitle(),
+        post.add(new Post(submittedPost.getPostId(), submittedPost.getLocalDateTime(),submittedPost.getTitle(),
                 submittedPost.getAuthor(), submittedPost.getContent(), submittedPost.getVotes()));
     }
 
