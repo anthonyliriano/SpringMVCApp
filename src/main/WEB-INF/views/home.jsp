@@ -9,6 +9,7 @@
 
         <%--Bootstrap--%>
         <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/webjars/bootstrap-glyphicons/bdd2cbfba0/css/bootstrap-glyphicons.css">
 
 
 
@@ -30,8 +31,11 @@
                     <h4 class="card-title">${item.getTitle()}</h4>
                     <h6 class="card-subtitle mb-2 text-muted">${item.getAuthor()}</h6>
                     <p class="card-text">${item.getContent()}</p>
-                    <a href="#" class="card-link">Upvote</a>
-                    <a href="#" class="card-link">Downvote</a>
+                    <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                    </a>
+                    <span>0</span>
+                    <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
+                    </a>
                 </div>
             </div>
         </div>
