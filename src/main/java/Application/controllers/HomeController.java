@@ -18,7 +18,6 @@ public class HomeController {
     @RequestMapping("/")
     public String getHome(Model model){
         model.addAttribute("Post", postService.getPost());
-
         return "home";
     }
 }

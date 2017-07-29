@@ -32,7 +32,7 @@ public class PostController {
     }
 
     @PostMapping("/post/submit/")
-    public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult, Model model, Principal user){
+    public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult, Model model){
 
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult.getAllErrors());
@@ -44,11 +44,6 @@ public class PostController {
             postService.addPost(post);
         }
 
-        if(user != null){
-            System.out.println("hi");
-        }else{
-            System.out.println("Does user even exist?");
-        }
         //Error on Home page unless this model attribute is passed..
         model.addAttribute("Post", postService.getPost());
         return "home";
