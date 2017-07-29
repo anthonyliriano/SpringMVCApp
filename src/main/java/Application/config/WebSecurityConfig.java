@@ -29,9 +29,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http.
                 authorizeRequests()
                     .antMatchers("/").permitAll() //permit everyone to home
-                    .antMatchers("/post/*").hasRole("USER")
+                    .antMatchers("/post/create/**").hasRole("USER")
+                    .antMatchers("/post/submit/**").hasRole("USER")
+                    .antMatchers("/post/view/*").permitAll()
                     .antMatchers("/login").anonymous() //Only anonymous users should have access
-                    //.anyRequest().authenticated() //Any other request must be autheticated
                     .and()
                 .formLogin()
                     .loginPage("/login")//Use supplied loginPage

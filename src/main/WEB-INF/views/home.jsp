@@ -28,7 +28,11 @@
         <div class="col-md-10">
             <div class="card">
                 <div class="card-block">
-                    <h4 class="card-title">${item.getTitle()}</h4>
+                    <h4 class="card-title">
+                        <a href="/post/view/${item.getPostId()}">
+                            ${item.getTitle()}
+                        </a>
+                    </h4>
                     <h6 class="card-subtitle mb-2 text-muted">${item.getAuthor()}</h6>
                     <p class="card-text">${item.getContent()}</p>
                     <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
