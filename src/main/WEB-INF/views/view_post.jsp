@@ -21,12 +21,18 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h3>${Post.getTitle()}<br />
-                    <small class="small">
-                        ${Post.getAuthor()}
-                            ${Post.getLocalDateTime().toLocalDate()}
-                            ${Post.getLocalDateTime().getHour()}:${Post.getLocalDateTime().getMinute()}
-                    </small></h3>
+
+                <h3>
+                    <span>
+                    <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                    </a>
+                </span>
+                    ${Post.getTitle()}</h3>
+                <small class="small text-muted">
+                    "X points.."  Submitted by ${Post.getAuthor()} on ${Post.getLocalDateTime().getMonth()}
+                    ${Post.getLocalDateTime().getDayOfMonth()},
+                    ${Post.getLocalDateTime().getHour()}:${Post.getLocalDateTime().getMinute()}
+                </small>
             </div>
         </div>
     </div>

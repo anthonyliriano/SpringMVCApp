@@ -23,32 +23,31 @@
     <div class="container">
         <%--For each Post create a col-md-10--%>
         <c:forEach items="${Post}" var="item">
-        <div class="col-md-10">
-            <div class="card">
-                <div class="card-block">
+        <div class="row">
+            <div class="card col-md-10">
+                <div class="card-block col-md-8">
                     <h4 class="card-title">
-                        <a href="/post/view/${item.getPostId()}">
+                        <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
+                        </a>
+                        <a class="post-title" href="/post/view/${item.getPostId()}">
                             ${item.getTitle()}
                         </a>
                     </h4>
-                    <h6 class="card-subtitle mb-2 text-muted">
-                            ${item.getAuthor()}
-                            ${item.getLocalDateTime().toLocalDate()}
+                    <span class="card-subtitle text-muted">
+                          "X points.."  Submitted by ${item.getAuthor()} on ${item.getLocalDateTime().getMonth()}
+                        ${item.getLocalDateTime().getDayOfMonth()},
                             ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
-                    </h6>
+                    </span>
                     <div class="card-text col-md-10" style="word-wrap: break-word;">
                             ${item.getContent()}
                     </div>
-                    <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
-                    </a>
-                    <span>0</span>
-                    <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span>
-                    </a>
+
                 </div>
             </div>
         </div>
         <%--End Post Iteration--%>
         </c:forEach>
+
     </div>
 
 <%--Footer--%>

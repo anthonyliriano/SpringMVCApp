@@ -2,6 +2,51 @@ h1{
     color: red;
 }
 /*Home page Card */
-.card{
+h4.card{
     margin: 5px 0 0 5px;
+}
+.card{
+    margin-bottom: 5px;
+}
+.card-block{
+    padding: 5px !important;
+}
+.card-title{
+    margin: 0 !important;
+}
+.card-text{
+    min-height: 50px !important;
+}
+a.post-title{
+    color: black;
+}
+a.post-title:hover{
+    color: black;
+    text-decoration: none;
+}
+.glyphicon-arrow-up{
+    font-size: 15px;
+    color: silver;
+}
+.glyphicon-arrow-up:hover{
+    color: black;
+    text-decoration: none;
+}
+a.card-link::selection,a.card-link:hover{
+    text-decoration: none;
+}
+/*View Post CSS*/
+.page-header > h3{
+    margin: 0px;
+}
+small.page-header{
+    font-size: 12px;
+}
+
+/*Navbar*/
+nav{
+    margin-bottom: 5px;
+}
+.navbar-brand{
+    font-size: 1em !important;
 }
