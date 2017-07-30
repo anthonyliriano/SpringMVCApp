@@ -1,7 +1,6 @@
 package Application.model;
 
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 
 /**
  * Created by aliriano on 7/22/17.
