@@ -9,4 +9,5 @@ deploy:
     secure: UHKGgYTx3ceiEU8y0oYux0Rv4qwBWsobtGxc8bO4A2nYZIr0cDCe6a90aC0kmKXF0uLSKwh3KTSWpQl/iD5dbUcWM/T+B5adCPQbChSyCdFsmThPB7DoGaIJ144WgQMqiczRt0cn1LNAOgXY5O8IX1gCYLOnqhPkrUIJj0/3FtXUD0yv0mOQWu8AoPmrVYBnyhjCcxxS6Mp+9/B9lnO7XNmKnPrxb3N4Yuf/IMLqFYcfblqsXzKPk/dvpmDsS84Nb760WT8fCl+3VaxFDRDxW2dGB5n64mj18VRk9iY8R2yZVkkHpOx7eBCtiDDpsC3jzuOuysqIMf56WNa2CouIR2k3oRof+x6NKvrBF6xOGavMiGU2Uht29RNFnP5eMPJsNQHTD80hFOaVLBhhN+z9sa6NWIQi9lkOR/HENs14ExhPiY0a7Nging0CxKYXPJUSJuWUv71cHihu8UW7+sdbUUuVQQZ7wrH/kcWb/VhhdHg62D8x734KgHjYh2vrmP7TmkylaxjWkmyrWS9AK0dGb/RF332bMx2ukb0YUKZ/N7ue1+YDu7cHFL642MOMiZ/XZ6sY0/iaLkJCa32K/rU8EdK0DDoi7JJEX5KNk7utFKn84aXtuUHVOQVCCcsMtc+tjB85Cy05kEiUzO6bSeUNwy7YQt3pno7GGtOrpkkrrYk=
   app: spring--mvc
   run:
+    - "mvn package"
     - "java -cp target/classes:target/dependency/* Application.Application"
