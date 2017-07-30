@@ -44,7 +44,7 @@ public class PostController {
 
         //Error on Home page unless this model attribute is passed..
         model.addAttribute("Post", postService.getPost());
-        return "home";
+        return "redirect:/";
     }
 
     @RequestMapping("/post/view/{postId}")
