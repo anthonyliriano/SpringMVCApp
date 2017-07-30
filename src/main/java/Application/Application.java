@@ -10,16 +10,12 @@ import java.io.File;
  */
 public class Application {
 
-    public static int Port =  Integer.parseInt(System.getenv("PORT"));
+    public static int Port =  System.getenv("PORT") == null ? 8080 : Integer.parseInt(System.getenv("PORT")) ;
 
     public static void main(String[] args) throws Exception {
         String webAppDirLocation = "src/main/";
         Tomcat tomcat = new Tomcat();
 
-        //Heroku should provide port.
-        if (Application.Port <= 0){
-            Application.Port = 8080;
-        }
         tomcat.setPort(Application.Port);
 
         StandardContext ctx = (StandardContext) tomcat.addWebapp("/", new File(webAppDirLocation).getAbsolutePath());
