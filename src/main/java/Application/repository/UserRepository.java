@@ -1,9 +1,6 @@
 package Application.repository;
 
 import Application.model.User;
-import javafx.util.Pair;
-
-import java.util.ArrayList;
 import java.util.List;
 
 /**
