@@ -10,7 +10,9 @@ import java.util.UUID;
  */
 public class Post {
 
+    @NotNull
     private UUID postId;
+
     private LocalDateTime localDateTime;
 
     @NotNull
@@ -84,5 +86,12 @@ public class Post {
 
     public void setVotes(String votes) {
         this.votes = votes;
+    }
+
+    public UUID generateId(){
+        return UUID.randomUUID();
+    }
+    public LocalDateTime generateDate(){
+        return LocalDateTime.now();
     }
 }

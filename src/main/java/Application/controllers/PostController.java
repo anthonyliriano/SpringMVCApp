@@ -3,16 +3,12 @@ package Application.controllers;
 import Application.model.Post;
 import Application.services.PostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.security.Principal;
-import java.util.List;
 import java.util.UUID;
 
 /**
@@ -26,7 +22,8 @@ public class PostController {
 
     @RequestMapping("/post/create/")
     public String createPost(Model model){
-        model.addAttribute("Post", new Post());
+        Post post = new Post();
+        model.addAttribute("Post", post);
 
         return "create_post";
     }
@@ -34,12 +31,13 @@ public class PostController {
     @PostMapping("/post/submit/")
     public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult, Model model){
 
+        //When Post is submitted generate date.
+       post.setLocalDateTime(post.generateDate());
+
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult.getAllErrors());
             return "create_post";
         }else {
-            UUID postId = UUID.randomUUID();
-            post.setPostId(postId);
             //Add Post if there are no errors
             postService.addPost(post);
         }

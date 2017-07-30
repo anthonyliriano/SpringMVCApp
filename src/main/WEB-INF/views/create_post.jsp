@@ -44,6 +44,11 @@
                 <form:textarea path="content" cssClass="form-control" rows="3"></form:textarea>
             </div>
 
+            <%--Hidden Variables--%>
+            <form:hidden path="postId" value="${Post.generateId()}"></form:hidden>
+            <%--<form:hidden path="localDateTime" value="${Post.generateDate()}"></form:hidden>--%>
+
+
             <input type="submit" class="btn btn-primary"  value="Submit">
 
         </form:form>
