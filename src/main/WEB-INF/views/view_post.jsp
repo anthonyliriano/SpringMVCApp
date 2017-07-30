@@ -24,8 +24,8 @@
                 <h3>${Post.getTitle()}<br />
                     <small class="small">
                         ${Post.getAuthor()}
-                            ${item.getLocalDateTime().toLocalDate()}
-                            ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
+                            ${Post.getLocalDateTime().toLocalDate()}
+                            ${Post.getLocalDateTime().getHour()}:${Post.getLocalDateTime().getMinute()}
                     </small></h3>
             </div>
         </div>
