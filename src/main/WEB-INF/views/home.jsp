@@ -30,13 +30,15 @@
                         <a href="/post/view/${item.getPostId()}">
                             ${item.getTitle()}
                         </a>
-                        <small>
-                                ${item.getLocalDateTime().toLocalDate()}
-                                ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
-                        </small>
                     </h4>
-                    <h6 class="card-subtitle mb-2 text-muted">${item.getAuthor()}</h6>
-                    <p class="card-text">${item.getContent()}</p>
+                    <h6 class="card-subtitle mb-2 text-muted">
+                            ${item.getAuthor()}
+                            ${item.getLocalDateTime().toLocalDate()}
+                            ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
+                    </h6>
+                    <div class="card-text col-md-10" style="word-wrap: break-word;">
+                            ${item.getContent()}
+                    </div>
                     <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                     </a>
                     <span>0</span>

@@ -21,7 +21,12 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h3>${Post.getTitle()} <br /> <small class="small">${Post.getAuthor()}</small></h3>
+                <h3>${Post.getTitle()}<br />
+                    <small class="small">
+                        ${Post.getAuthor()}
+                            ${item.getLocalDateTime().toLocalDate()}
+                            ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
+                    </small></h3>
             </div>
         </div>
     </div>
