@@ -26,14 +26,16 @@
 
 <div class="container">
     <div class="row justify-content-md-center">
-        <div class="col-md-6">
+        <div class="col-md-4">
             <form:form method="post" action="${loginProcessingUrl}" id="signinForm" modelAttribute="User">
-                <h3 class="form-signin-heading">Please sign in</h3>
-<%--
+                <h3 class="form-signin-heading">Login</h3>
+                <small>Default credentials are user/password</small>
+                <c:if test="${Error != null}">
                     <div class="alert alert-danger" role="alert">
-                        <strong><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}"/></strong>
+                        <strong>Invalid credentials</strong>
                     </div>
- --%>
+                </c:if>
+
                 <div class="form-group">
                     <form:label path="username">Username</form:label>
                     <form:input path="username" cssClass="form-control"/>
@@ -43,7 +45,7 @@
                 <div class="form-group">
                     <form:label path="password">Password</form:label>
                     <form:password path="password" class="form-control" cssClass="form-control" />
-                    <div class="form-control-feedback"></div>
+                    <div class="form-control-feedback float-right"><a href="/register/">Click here to Register</a></div>
                 </div>
 
 
