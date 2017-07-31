@@ -7,6 +7,7 @@ Credentials to submit a post: user/password
 - Create a random post
 - Posts contain a title, author, contents and votes
 - Login in with user/password
+- Register as a new user (user/password/email)
  
 ## Build
 [![Build Status](https://travis-ci.org/anthonyliriano/SpringMVCApp.svg?branch=master)](https://travis-ci.org/anthonyliriano/SpringMVCApp)
