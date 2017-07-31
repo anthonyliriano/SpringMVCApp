@@ -1,5 +1,7 @@
 package Application.config;
 
+import Application.services.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.*;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.*;
@@ -13,11 +15,30 @@ import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
  */
 @Configuration
 @EnableWebSecurity
+@ComponentScan(basePackageClasses = WebConfig.class)
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
+
+    //Temporarily manually adding users to InMemoryUserDetailsManager
+    @Autowired
+    UserService userService;
+
     @Bean
     public UserDetailsService userDetailsService(){
         InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-        manager.createUser(User.withUsername("user").password("password").roles("USER").build());
+        //manager.createUser(User.withUsername("user").password("password").roles("USER").build());
+
+        userService.getAllUsers().iterator();
+
+        for (Application.model.User user : userService.getAllUsers()){
+            manager.createUser(
+                    User
+                        .withUsername(user.getUsername())
+                        .password(user.getPassword())
+                        .roles("USER")
+                        .build()
+            );
+        }
+
 
         return manager;
     }
@@ -33,6 +54,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/post/submit/**").hasRole("USER")
                     .antMatchers("/post/view/*").permitAll()
                     .antMatchers("/login").anonymous() //Only anonymous users should have access
+                    .antMatchers("/register").anonymous()
                     .and()
                 .formLogin()
                     .loginPage("/login")//Use supplied loginPage

@@ -1,7 +1,11 @@
 package Application.repository;
 
 import Application.model.User;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +18,7 @@ public class UserRepository {
     public UserRepository(){
         user.add(new User("admin","password","test@test.com"));
         user.add(new User("moderator","password", "test@test.com"));
-        user.add(new User("password","password", "test@test.com"));
+        user.add(new User("user","password", "test@test.com"));
 
     }
 
@@ -23,6 +27,11 @@ public class UserRepository {
     }
 
     public void addUser(User newUser){
+        System.out.println("User added " + newUser.getUsername());
         user.add(newUser);
+    }
+
+    public List<User> getAllUsers(){
+        return user;
     }
 }

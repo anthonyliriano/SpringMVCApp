@@ -2,7 +2,9 @@ package Application.controllers;
 
 import Application.model.User;
 import Application.repository.UserRepository;
+import Application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -16,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-//    @Autowired
-//    UserRepository userRepository;
+    @Autowired
+    UserService userService;
 
     @RequestMapping("/login")
     public String getLoginPage(Model model){
@@ -48,7 +50,8 @@ public class LoginController {
     @PostMapping("/register/submit/")
     public String submitUserRegistration(@ModelAttribute("User") User user){
         System.out.println(user.getUsername());
-       // userRepository.addUser(user);
+        userService.addUser(user);
+
         return "redirect:/";
     }
 }
