@@ -4,6 +4,10 @@
 <html>
 <head>
     <title>Create Post</title>
+
+    <%--Main CSS--%>
+    <link rel="stylesheet" href="/resources/css/main.css">
+
     <%--Boostrap--%>
     <link rel="stylesheet" href="/webjars/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css">
 
