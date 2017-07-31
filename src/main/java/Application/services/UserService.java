@@ -3,17 +3,22 @@ package Application.services;
 import Application.model.User;
 import Application.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by aliriano on 7/22/17.
  */
+@Service
 public class UserService {
-    @Autowired
+    //@Autowired
     UserRepository userRepository;
 
 
     public Boolean getUserByUserName(String username){
         return userRepository.findUserByUsername(username);
 
+    }
+    public void addUser(User user){
+        userRepository.addUser(user);
     }
 }

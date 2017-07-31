@@ -1,22 +1,28 @@
 package Application.repository;
 
 import Application.model.User;
+import org.springframework.stereotype.Component;
+
+import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by aliriano on 7/22/17.
- */
+
+@Component
 public class UserRepository {
-    private List<User> user;
+    private List<User> user = new ArrayList<>();
 
     public UserRepository(){
-        user.add(new User("admin","password"));
-        user.add(new User("moderator","password"));
-        user.add(new User("password","password"));
+        user.add(new User("admin","password","test@test.com"));
+        user.add(new User("moderator","password", "test@test.com"));
+        user.add(new User("password","password", "test@test.com"));
 
     }
 
     public Boolean findUserByUsername(String username){
         return user.contains("admin");
+    }
+
+    public void addUser(User newUser){
+        user.add(newUser);
     }
 }
