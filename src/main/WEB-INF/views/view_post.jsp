@@ -45,8 +45,9 @@
     </div>
     <div class="row">
         <div class="col-md-8 tags">
-
-                <span class="badge badge-default">${Post.getTags()}</span>
+            <c:forEach var="tag" items="${Post.getTags().split(',')}">
+                <span class="badge badge-default">${tag}</span>
+            </c:forEach>
         </div>
     </div>
 </div>
