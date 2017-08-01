@@ -30,7 +30,7 @@
                         <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                         </a>
                         <a class="post-title" href="/post/view/${item.getPostId()}">
-                            ${item.getTitle()}
+                            <c:out value="${item.getTitle()}"></c:out>
                         </a>
                     </h4>
                     <span class="card-subtitle text-muted">
@@ -39,7 +39,7 @@
                             ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
                     </span>
                     <div class="card-text col-md-10" style="word-wrap: break-word;">
-                            ${item.getContent()}
+                        <c:out value="${item.getContent()}"></c:out>
                     </div>
 
                 </div>
