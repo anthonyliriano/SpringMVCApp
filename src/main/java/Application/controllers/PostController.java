@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.UUID;
 
 /**
@@ -24,15 +25,18 @@ public class PostController {
     public String createPost(Model model){
         Post post = new Post();
         model.addAttribute("Post", post);
-
         return "create_post";
     }
 
     @PostMapping("/post/submit/")
-    public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult, Model model){
+    public String submitPost(@Valid @ModelAttribute("Post") Post post, BindingResult bindingResult,
+                             Model model, Principal principal){
 
         //When Post is submitted generate date.
        post.setLocalDateTime(post.generateDate());
+
+       //Set Author as the user who is logged in..
+        post.setAuthor(principal.getName());
 
         if (bindingResult.hasErrors()){
             System.out.println(bindingResult.getAllErrors());

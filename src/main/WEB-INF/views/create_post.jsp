@@ -31,15 +31,20 @@
             <div class="form-group row">
 
                 <form:label path="title" cssClass="col-1 col-form-label">Title</form:label>
-                <div class="col-4">
+                <div class="col-6">
                     <form:input path="title" cssClass="form-control"/>
                 </div>
 
+                <form:label path="tags" cssClass="col-1 col-form-label">Tags</form:label>
+                <div class="col-4">
+                    <form:input path="tags" cssClass="form-control"/>
+                </div>
+
             <%--Post Author--%>
-                <form:label path="author" cssClass="col-1 col-form-label">Author</form:label>
+<%--                <form:label path="author" cssClass="col-1 col-form-label">Author</form:label>
                 <div class="col-4">
                     <form:input path="author" cssClass="form-control"  />
-                </div>
+                </div>--%>
             </div>
 
             <%--Post Content--%>
@@ -71,11 +76,6 @@
         $('#postForm').validate({
             rules: {
                 title: {
-                    minlength: 5,
-                    maxlength: 30,
-                    required: true
-                },
-                author: {
                     minlength: 5,
                     maxlength: 30,
                     required: true
