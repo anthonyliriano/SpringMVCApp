@@ -25,7 +25,7 @@
 
             <h2>Submit a Post</h2>
 
-        <form:form method="post" action="/post/submit/" commandName="Post" id="postForm">
+        <form:form method="post" action="/post/submit/" commandName="Post" id="postForm" class="TEST">
 
             <%--Post Title--%>
             <div class="form-group row">
@@ -37,7 +37,7 @@
 
                 <form:label path="tags" cssClass="col-1 col-form-label">Tags</form:label>
                 <div class="col-4">
-                    <form:input path="tags" cssClass="form-control"/>
+                    <form:input path="tags" cssClass="form-control" placeholder="php,css,html"/>
                 </div>
 
             <%--Post Author--%>

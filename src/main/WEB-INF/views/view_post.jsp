@@ -27,7 +27,8 @@
                     <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                     </a>
                 </span>
-                    ${Post.getTitle()}</h3>
+                    <c:out value="${Post.getTitle()}"></c:out>
+                </h3>
                 <small class="small text-muted">
                     "X points.."  Submitted by ${Post.getAuthor()} on ${Post.getLocalDateTime().getMonth()}
                     ${Post.getLocalDateTime().getDayOfMonth()},
@@ -39,14 +40,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                ${Post.getContent()}
+                <c:out value="${Post.getContent()}"></c:out>
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-8 tags">
             <c:forEach var="tag" items="${Post.getTags().split(',')}">
-                <span class="badge badge-default">${tag}</span>
+                <span class="badge badge-default">
+                    <c:out value="">${tag}</c:out>
+                </span>
             </c:forEach>
         </div>
     </div>
