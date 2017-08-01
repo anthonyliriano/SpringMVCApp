@@ -19,8 +19,7 @@ public class Post {
     @Size(min = 5, max = 30)
     private String title;
 
-    @NotNull
-    @Size(min = 2, max = 30)
+
     private String author;
 
     @NotNull
@@ -29,15 +28,18 @@ public class Post {
 
     private String votes;
 
+    private String tags;
+
     public Post(){
     }
-    public Post(UUID postId, LocalDateTime dateTime, String title, String author, String content, String votes){
+    public Post(UUID postId, LocalDateTime dateTime, String title, String author, String content, String votes, String tags){
         this.localDateTime = dateTime;
         this.postId = postId;
         this.title = title;
         this.author = author;
         this.content = content;
         this.votes = votes;
+        this.tags = tags;
     }
 
     public UUID getPostId() {
@@ -93,5 +95,13 @@ public class Post {
     }
     public LocalDateTime generateDate(){
         return LocalDateTime.now();
+    }
+
+    public String getTags() {
+        return tags;
+    }
+
+    public void setTags(String tags) {
+        this.tags = tags;
     }
 }

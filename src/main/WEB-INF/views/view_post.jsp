@@ -43,6 +43,12 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col-md-8 tags">
+
+                <span class="badge badge-default">${Post.getTags()}</span>
+        </div>
+    </div>
 </div>
 
 <%--Footer--%>
