@@ -48,7 +48,7 @@
         <div class="col-md-8 tags">
             <c:forEach var="tag" items="${Post.getTags().split(',')}">
                 <span class="badge badge-default">
-                    <c:out value="">${tag}</c:out>
+                   ${tag}
                 </span>
             </c:forEach>
         </div>
