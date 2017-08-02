@@ -24,8 +24,8 @@
         <%--For each Post create a col-md-10--%>
         <c:forEach items="${Post}" var="item">
         <div class="row">
-            <div class="card col-md-10">
-                <div class="card-block col-md-8">
+            <div class="card col-md-12">
+                <div class="card-block">
                     <h4 class="card-title">
                         <a href="#" class="card-link"><span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>
                         </a>
@@ -33,12 +33,12 @@
                             <c:out value="${item.getTitle()}"></c:out>
                         </a>
                     </h4>
-                    <span class="card-subtitle text-muted">
-                          "X points.."  Submitted by ${item.getAuthor()} on ${item.getLocalDateTime().getMonth()}
+                    <span class="card-subtitle text-muted col-md-8">
+                          ${item.getVotes()} points by ${item.getAuthor()} on ${item.getLocalDateTime().getMonth()}
                         ${item.getLocalDateTime().getDayOfMonth()},
                             ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
                     </span>
-                    <div class="card-text col-md-10" style="word-wrap: break-word;">
+                    <div class="card-text col-md-10">
                         <c:out value="${item.getContent()}"></c:out>
                     </div>
 

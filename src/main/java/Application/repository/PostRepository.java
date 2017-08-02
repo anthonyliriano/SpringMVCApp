@@ -18,13 +18,13 @@ public class PostRepository {
 
 
     public PostRepository(){
-        //Manually created Posts.
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(220),"Post Number 1","Jack","Content_1","1", "test,test"));
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(139),"Post Number 2","John","Content_2","0", "test,test"));
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(181),"Post Number 3","Jenny","Content_3","10", "test,test"));
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(103), "Post Number 4","Jim","Content_4","11", "test,test"));
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(67),"Post Number 5","Joey","Content 5","0", "test,test"));
-        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(43),"Post Number 6","Joey","Content 5","0", "test,test"));
+        //Manually created Post.
+        post.add(new Post(UUID.randomUUID(),LocalDateTime.now().minusMinutes(220),
+                "Test Post",
+                "user",
+                "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a",
+                "1",
+                "test,test"));
     }
 
     public List<Post> getAllPosts(){
