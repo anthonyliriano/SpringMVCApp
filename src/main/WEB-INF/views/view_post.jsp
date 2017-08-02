@@ -30,7 +30,7 @@
                     <c:out value="${Post.getTitle()}"></c:out>
                 </h3>
                 <small class="small text-muted">
-                    "X points.."  Submitted by ${Post.getAuthor()} on ${Post.getLocalDateTime().getMonth()}
+                    ${Post.getVotes()} points by ${Post.getAuthor()} on ${Post.getLocalDateTime().getMonth()}
                     ${Post.getLocalDateTime().getDayOfMonth()},
                     ${Post.getLocalDateTime().getHour()}:${Post.getLocalDateTime().getMinute()}
                 </small>
