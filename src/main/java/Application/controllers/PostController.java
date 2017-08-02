@@ -21,7 +21,7 @@ public class PostController {
     @Autowired
     PostService postService;
 
-    @RequestMapping("/post/create/")
+    @GetMapping("/post/create/")
     public String createPost(Model model){
         Post post = new Post();
         model.addAttribute("Post", post);
@@ -51,7 +51,7 @@ public class PostController {
         return "redirect:/";
     }
 
-    @RequestMapping("/post/view/{postId}")
+    @GetMapping("/post/view/{postId}")
     public String viewPost(@PathVariable("postId") UUID postId, Model model){
 
         Post post = postService.getPostById(postId);
@@ -59,7 +59,6 @@ public class PostController {
         if (post != null){
             model.addAttribute("Post", post);
         }
-
         return "view_post";
     }
 }
