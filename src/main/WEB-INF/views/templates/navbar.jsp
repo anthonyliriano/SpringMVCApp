@@ -26,8 +26,8 @@
                         Profile
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <a class="dropdown-item" href="#">Edit</a>
-                        <a class="dropdown-item" href="#">Stats</a>
+                        <a class="dropdown-item" href="/user/profile/edit/">Edit</a>
+                        <a class="dropdown-item" href="/user/profile/">View</a>
                         <a class="dropdown-item" href="/logout">Log out</a>
                     </div>
                 </li>
