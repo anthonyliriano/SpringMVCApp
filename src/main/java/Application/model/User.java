@@ -7,6 +7,8 @@ import javax.validation.constraints.NotNull;
  */
 public class User {
 
+    private String userID;
+
     @NotNull
     private String username;
 
@@ -20,10 +22,19 @@ public class User {
         //No user..
     }
 
-    public User(String username, String password, String email){
+    public User(String userID, String username, String password, String email){
+        this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
+    }
+
+    public String getUserID() {
+        return userID;
+    }
+
+    public void setUserID(String userID) {
+        this.userID = userID;
     }
 
     public String getUsername() {
