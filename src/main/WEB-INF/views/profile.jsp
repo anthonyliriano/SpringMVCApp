@@ -34,7 +34,7 @@
             <tr>
                 <th>Points</th>
                 <th>Title</th>
-                <th>Content</th>
+                <th>Tags</th>
                 <th>Date</th>
             </tr>
             </thead>
