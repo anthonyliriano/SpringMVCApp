@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 import java.security.Principal;
 
@@ -17,6 +18,22 @@ public class UserProfileController {
 
     @Autowired
     UserService userService;
+
+    //See User profile by UUID
+    @GetMapping("/user/profile/{userID}")
+    public String getUserProfile(@PathVariable("userID") String userID, Model model){
+
+        User user = userService.getUserById(userID);
+        if (user != null){
+            model.addAttribute("User", user);
+            return "profile";
+        }
+
+        //Error Page if user does not exist.
+        model.addAttribute("Error", "Trying to access a non-existing user");
+        return "error";
+    }
+
 
     //Retrieve the profile of the user who is logged in.
     @GetMapping("/user/profile/")
@@ -40,4 +57,5 @@ public class UserProfileController {
         model.addAttribute("User", user);
      return "edit_profile";
     }
+
 }
