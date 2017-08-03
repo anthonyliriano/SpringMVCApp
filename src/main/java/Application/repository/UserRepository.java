@@ -33,15 +33,6 @@ public class UserRepository {
                 "user",
                 "password",
                 "test@test.com"));
-
-    }
-
-    public User findUserByUsername(String username){
-        for (User user : user){
-           if(user.getUsername().equals(username))
-               return user;
-        }
-        return null;
     }
 
     public void addUser(User newUser){

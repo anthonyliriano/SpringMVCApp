@@ -13,13 +13,33 @@ import java.util.List;
 @Service
 public class UserService {
     @Autowired
-    UserRepository userRepository;
+     UserRepository userRepository;
 
 
     public User getUserByUserName(String username){
-        return userRepository.findUserByUsername(username);
+        //All Users
+        List<User> allUsers = getAllUsers();
 
+        //Iterate over All users
+        for (User user : allUsers){
+            if(user.getUsername().equals(username))
+                return user;
+        }
+        return null;
     }
+
+
+    public User getUserById(String userId){
+        //All Users
+        List<User> allUsers = getAllUsers();
+
+        for (User user : allUsers){
+            if(user.getUserID().equals(userId))
+                return user;
+        }
+        return null;
+    }
+
     public void addUser(User user){
         userRepository.addUser(user);
     }
