@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Arrays;
+import java.util.UUID;
+
 
 /**
  * Created by aliriano on 7/22/17.
@@ -49,9 +52,11 @@ public class LoginController {
 
     @PostMapping("/register/submit/")
     public String submitUserRegistration(@ModelAttribute("User") User user){
-        System.out.println(user.getUsername());
-        userService.addUser(user);
 
+        //Generate a Random UUID for this new user.
+        user.setUserID(UUID.randomUUID().toString());
+        userService.addUser(user);
+        
         return "redirect:/";
     }
 }
