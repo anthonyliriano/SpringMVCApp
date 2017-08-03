@@ -34,9 +34,17 @@
                         </a>
                     </h4>
                     <span class="card-subtitle text-muted col-md-8">
-                          ${item.getVotes()} points by ${item.getAuthor()} on ${item.getLocalDateTime().getMonth()}
-                        ${item.getLocalDateTime().getDayOfMonth()},
-                            ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
+                          <%--Votes--%>
+                            ${item.getVotes()} points by
+                          <%--Creator--%>
+                          <a href="/user/profile/${PostCreator.getUserByUserName(item.getAuthor()).getUserID()}">
+                              ${item.getAuthor()}
+                          </a>  on
+
+                          <%--Date--%>
+                          ${item.getLocalDateTime().getMonth()} ${item.getLocalDateTime().getDayOfMonth()},
+                          <%--Time--%>
+                          ${item.getLocalDateTime().getHour()}:${item.getLocalDateTime().getMinute()}
                     </span>
                     <div class="card-text col-md-10">
                         <c:out value="${item.getContent()}"></c:out>
