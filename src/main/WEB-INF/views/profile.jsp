@@ -18,7 +18,37 @@
 <jsp:include page="templates/navbar.jsp" />
 
 <div class="container">
-    This is the users profile.
+    <div class="row">
+        <div class="col-12 col-md-auto">
+            <img src="/resources/images/blank_image.svg" class="rounded float-left" alt="...">
+        </div>
+        <div class="col-4">
+            ${User.getUsername()} <br/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <%--Will serve to display the last 5 posts--%>
+            <table class="table">
+            <thead>
+            <tr>
+                <th>Points</th>
+                <th>Title</th>
+                <th>Content</th>
+                <th>Date</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <th scope="row"></th>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 
 <%--Footer--%>

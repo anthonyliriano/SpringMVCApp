@@ -16,7 +16,7 @@ public class UserService {
     UserRepository userRepository;
 
 
-    public Boolean getUserByUserName(String username){
+    public User getUserByUserName(String username){
         return userRepository.findUserByUsername(username);
 
     }

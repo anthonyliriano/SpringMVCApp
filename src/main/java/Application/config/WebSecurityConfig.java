@@ -55,6 +55,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/post/view/*").permitAll()
                     .antMatchers("/login").anonymous() //Only anonymous users should have access
                     .antMatchers("/register").anonymous()
+                    .antMatchers("/user/profile/edit/").hasRole("USER")
+                    .antMatchers("/user/profile/").hasRole("USER")
                     .and()
                 .formLogin()
                     .loginPage("/login")//Use supplied loginPage

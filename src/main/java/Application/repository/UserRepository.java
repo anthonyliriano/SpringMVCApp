@@ -22,8 +22,12 @@ public class UserRepository {
 
     }
 
-    public Boolean findUserByUsername(String username){
-        return user.contains("admin");
+    public User findUserByUsername(String username){
+        for (User user : user){
+           if(user.getUsername().equals(username))
+               return user;
+        }
+        return null;
     }
 
     public void addUser(User newUser){
