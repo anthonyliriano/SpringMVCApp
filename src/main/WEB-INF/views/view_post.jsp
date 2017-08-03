@@ -30,8 +30,17 @@
                     <c:out value="${Post.getTitle()}"></c:out>
                 </h3>
                 <small class="small text-muted">
-                    ${Post.getVotes()} points by ${Post.getAuthor()} on ${Post.getLocalDateTime().getMonth()}
-                    ${Post.getLocalDateTime().getDayOfMonth()},
+                    <%--Votes--%>
+                    ${Post.getVotes()} points by
+                    <%--Author--%>
+                    <a href="/user/profile/${User.getUserByUserName(Post.getAuthor()).getUserID()}">
+                        ${Post.getAuthor()}
+                    </a>
+                        on
+
+                    <%--Month & Day--%>
+                    ${Post.getLocalDateTime().getMonth()} ${Post.getLocalDateTime().getDayOfMonth()},
+                    <%--Time --%>
                     ${Post.getLocalDateTime().getHour()}:${Post.getLocalDateTime().getMinute()}
                 </small>
             </div>

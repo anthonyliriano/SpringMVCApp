@@ -2,6 +2,7 @@ package Application.controllers;
 
 import Application.model.Post;
 import Application.services.PostService;
+import Application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +21,9 @@ public class PostController {
 
     @Autowired
     PostService postService;
+
+    @Autowired
+    UserService userService;
 
     @GetMapping("/post/create/")
     public String createPost(Model model){
@@ -58,8 +62,12 @@ public class PostController {
 
         if (post != null){
             model.addAttribute("Post", post);
+            model.addAttribute("User", userService);
+            return "view_post";
         }
-        return "view_post";
+        model.addAttribute("Error", "Attempting to access a non-existing Post.");
+        return "error";
+
     }
 }
 
