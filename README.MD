@@ -8,6 +8,7 @@ Credentials to submit a post: user/password
 - Posts contain a title, author, contents, tags and votes
 - Login in with user/password
 - Register as a new user (user/password/email)
+- View user profiles and their last five posts.
  
 ## Build
 [![Build Status](https://travis-ci.org/anthonyliriano/SpringMVCApp.svg?branch=master)](https://travis-ci.org/anthonyliriano/SpringMVCApp)
