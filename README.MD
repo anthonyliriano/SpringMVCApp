@@ -1,5 +1,5 @@
 ## Overview
-A simple blog application using Spring MVC. The idea behind this project was to create an application that would allow registered users to submit random posts. A demo of project can be found on <a href="http://spring--mvc.herokuapp.com">spring--mvc.herokuapp.com</a> 
+A simple blog application using Spring MVC. The idea behind this project is to create an application that would allow registered users to submit random posts. A demo of project can be found on <a href="http://spring--mvc.herokuapp.com">spring--mvc.herokuapp.com</a> 
 
 Credentials to submit a post: user/password
 
@@ -20,11 +20,14 @@ Credentials to submit a post: user/password
 
 
 ## Running the Project
-
-..
-
+Run the following maven command
+```
+mvn package
+```
+Run the application on the default port(8080) use ```--PORT``` to change default port.
+```
+java -cp target/classes:target/dependency/* Application.Application
+```
 ## Open Source Components used
-- Spring MVC, Spring Security
-- Junit
-- Bootstrap 4 , JSP
-- jQuery
+- Spring MVC, Spring Security, JSP
+- Bootstrap 4
