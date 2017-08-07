@@ -28,37 +28,35 @@
         <form:form method="post" action="/post/submit/" commandName="Post" id="postForm" class="TEST">
 
             <%--Post Title--%>
-            <div class="form-group row">
+            <div class="form-group row" style="min-height:68px;">
 
                 <form:label path="title" cssClass="col-1 col-form-label">Title</form:label>
                 <div class="col-6">
                     <form:input path="title" cssClass="form-control"/>
+                    <div class="form-control-feedback"></div>
                 </div>
+            </div>
 
+            <%--Form Labels--%>
+            <div class="form-group row">
                 <form:label path="tags" cssClass="col-1 col-form-label">Tags</form:label>
-                <div class="col-4">
+                <div class="form-group col-4">
                     <form:input path="tags" cssClass="form-control" placeholder="php,css,html"/>
                 </div>
-
-            <%--Post Author--%>
-<%--                <form:label path="author" cssClass="col-1 col-form-label">Author</form:label>
-                <div class="col-4">
-                    <form:input path="author" cssClass="form-control"  />
-                </div>--%>
             </div>
 
             <%--Post Content--%>
-            <div class="form-group">
-                <form:label path="content">Content</form:label>
+            <div class="form-group" style="height:125px;">
+                <form:label path="content" cssClass="col-form-label">Content</form:label>
                 <form:textarea path="content" cssClass="form-control" rows="3"></form:textarea>
             </div>
 
             <%--Hidden Variables--%>
             <form:hidden path="postId" value="${Post.generateId()}"></form:hidden>
-            <%--<form:hidden path="localDateTime" value="${Post.generateDate()}"></form:hidden>--%>
 
-
-            <input type="submit" class="btn btn-primary"  value="Submit">
+            <div class="form-group">
+                <input type="submit" class="btn btn-primary"  value="Create Post">
+            </div>
 
         </form:form>
         </div>
@@ -74,6 +72,8 @@
     $(document).ready(function () {
 
         $('#postForm').validate({
+            errorElement: 'span',
+            errorClass: 'form-control-feedback',
             rules: {
                 title: {
                     minlength: 5,
@@ -87,11 +87,17 @@
                 }
             },
             highlight: function (element) {
-                $(element).closest('.control-group').removeClass('success').addClass('error');
+                $(element).closest('.form-group').removeClass('success').addClass('error');
+
+                //Add Bootstrap Validation Indicator..
+                $(element).closest('.form-group').removeClass('has-success').addClass('has-danger');
             },
             success: function (element) {
-                element.text('OK!').addClass('valid')
-                    .closest('.control-group').removeClass('error').addClass('success');
+                element.addClass('valid')
+                    .closest('.form-group').removeClass('error').addClass('success');
+
+                //Remove Bootstrap has-warning & add has-success
+                element.closest('.form-group').removeClass('has-danger').addClass('has-success');
             }
         });
 
