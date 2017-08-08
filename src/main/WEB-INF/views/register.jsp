@@ -46,7 +46,16 @@
                     <form:password path="password" class="form-control" cssClass="form-control" />
                 </div>
 
-                <input type="submit" class="btn btn-primary btn-block" name="submit" value="submit" />
+                <div class="form-group">
+                    Upload Profile Image
+                    <form:label cssClass="custom-file" path="">
+                        <input type="file" id="file" class="custom-file-input">
+                        <span class="custom-file-control"></span>
+                    </form:label>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-primary btn-block" value="Register" />
+                </div>
             </form:form>
         </div>
     </div>
