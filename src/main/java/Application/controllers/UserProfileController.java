@@ -1,6 +1,8 @@
 package Application.controllers;
 
+import Application.model.Post;
 import Application.model.User;
+import Application.services.PostService;
 import Application.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * Created by aliriano on 8/3/17.
@@ -19,6 +22,9 @@ public class UserProfileController {
     @Autowired
     UserService userService;
 
+    @Autowired
+    PostService postService;
+
     //See User profile by UUID
     @GetMapping("/user/profile/{userID}")
     public String getUserProfile(@PathVariable("userID") String userID, Model model){
@@ -26,10 +32,19 @@ public class UserProfileController {
         User user = userService.getUserById(userID);
         if (user != null){
             model.addAttribute("User", user);
+
+            //Get the posts for the user
+            List<Post> userPosts = postService.getPostByUsername(user.getUsername());
+
+            System.out.println(userPosts.toArray().length);
+
+
+            model.addAttribute("UserPost", userPosts);
+            //Error Page if user does not exist.
+
             return "profile";
         }
 
-        //Error Page if user does not exist.
         model.addAttribute("Error", "Trying to access a non-existing user");
         return "error";
     }

@@ -39,12 +39,15 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row"></th>
-                <td></td>
-                <td></td>
-                <td></td>
-            </tr>
+            <c:forEach var="post" items="${UserPost}">
+                <tr>
+                    <th scope="row">${post.getVotes()}</th>
+                    <td>${post.getTitle()}</td>
+                    <td>${post.getTags()}</td>
+                    <td>${post.getLocalDateTime().toString()}</td>
+                </tr>
+            </c:forEach>
+
             </tbody>
             </table>
         </div>

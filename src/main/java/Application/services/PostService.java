@@ -5,6 +5,7 @@ import Application.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,5 +31,18 @@ public class PostService {
 
        return postRepository.getPostById(postId);
 
+    }
+
+    //Get Posts by Username
+    public List<Post> getPostByUsername(String username){
+        List<Post> allPosts = postRepository.getAllPosts();
+        List<Post> userSpecificPosts = new ArrayList<>();
+        for (Post post : allPosts){
+            if(post.getAuthor() == username){
+                //add the post that contain the username to the userSpecificPosts List
+                userSpecificPosts.add(post);
+            }
+        }
+        return userSpecificPosts;
     }
 }
