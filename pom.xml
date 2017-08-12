@@ -80,6 +80,13 @@
             <version>1.2</version>
         </dependency>
 
+        <!--Manipulating Uploaded File-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
         <!--View-->
         <dependency>
             <groupId>org.webjars</groupId>
