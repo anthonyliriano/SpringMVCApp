@@ -32,7 +32,9 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     protected void customizeRegistration(ServletRegistration.Dynamic registration){
 
         //Temporary location where files will be placed
-        File uploadDirectory = new File(System.getProperty("user.home"));
+        new File(System.getProperty("user.home")+"/user_avatars/").mkdir();
+
+        File uploadDirectory = new File(System.getProperty("user.home")+"/user_avatars/");
 
         MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory.getAbsolutePath(),
                 maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2);
