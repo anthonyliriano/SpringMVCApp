@@ -32,7 +32,7 @@ public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServlet
     protected void customizeRegistration(ServletRegistration.Dynamic registration){
 
         //Temporary location where files will be placed
-        File uploadDirectory = new File("/Users/aliriano/Desktop/springMVCapp/src/main/profile_pictures");
+        File uploadDirectory = new File("/Users/aliriano/Desktop/springMVCapp/src/main/user_avatars/");
 
         MultipartConfigElement multipartConfigElement = new MultipartConfigElement(uploadDirectory.getAbsolutePath(),
                 maxUploadSizeInMb, maxUploadSizeInMb * 2, maxUploadSizeInMb / 2);
