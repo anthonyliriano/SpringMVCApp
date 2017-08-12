@@ -22,17 +22,20 @@ public class UserRepository {
                 UUID.randomUUID().toString(),
                 "admin",
                 "password",
-                "test@test.com"));
+                "test@test.com",
+                null));
         user.add(new User(
                 UUID.randomUUID().toString(),
                 "moderator",
                 "password",
-                "test@test.com"));
+                "test@test.com",
+                null));
         user.add(new User(
                 UUID.randomUUID().toString(),
                 "user",
                 "password",
-                "test@test.com"));
+                "test@test.com",
+                null));
     }
 
     public void addUser(User newUser){
