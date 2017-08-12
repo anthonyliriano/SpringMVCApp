@@ -36,17 +36,13 @@ public class UserProfileController {
             //Get the posts for the user
             List<Post> userPosts = postService.getPostByUsername(user.getUsername());
 
-            System.out.println(userPosts.toArray().length);
-
-
             model.addAttribute("UserPost", userPosts);
-            //Error Page if user does not exist.
 
             return "profile";
         }
 
         model.addAttribute("Error", "Trying to access a non-existing user");
-        return "error";
+        return "error";//Error page is user does not exist
     }
 
 
@@ -54,10 +50,15 @@ public class UserProfileController {
     @GetMapping("/user/profile/")
     public String getUserProfile(Model model, Principal principal){
 
-        //Return User if found.
+        //Return User if found. Can't access this unless logged in
         User user = userService.getUserByUserName(principal.getName());
 
         model.addAttribute("User", user);
+
+        //Get the posts for the user
+        List<Post> userPosts = postService.getPostByUsername(user.getUsername());
+
+        model.addAttribute("UserPost", userPosts);
 
         return "profile";
     }
