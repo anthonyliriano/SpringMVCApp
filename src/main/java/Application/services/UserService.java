@@ -51,7 +51,7 @@ public class UserService {
        String imageBaseName = "." + FilenameUtils.getExtension(user.getAvatar().getOriginalFilename());
 
         //Write the Multipart file to profile_pictures
-        Path path = Paths.get("/user_avatars/",user.getUserID() + imageBaseName);
+        Path path = Paths.get(System.getProperty("user.home"),user.getUserID() + imageBaseName);
         Files.write(path, user.getAvatar().getBytes());
 
         userRepository.addUser(user);
