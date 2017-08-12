@@ -1,5 +1,7 @@
 package Application.model;
 
+import org.springframework.web.multipart.MultipartFile;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -17,6 +19,7 @@ public class User {
 
     private String email;
 
+    private MultipartFile avatar;
 
     public User(){
         //No user..
@@ -59,5 +62,13 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public MultipartFile getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(MultipartFile avatar) {
+        this.avatar = avatar;
     }
 }

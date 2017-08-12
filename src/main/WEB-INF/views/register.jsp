@@ -26,7 +26,7 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col-md-4">
-            <form:form method="post" action="/register/submit/" id="signinForm" modelAttribute="User">
+            <form:form method="post" action="/register/submit/" id="signinForm" modelAttribute="User" enctype="multipart/form-data">
                 <h3 class="form-signin-heading">Register</h3>
                 <small>Username & Password required</small>
 
@@ -48,8 +48,8 @@
 
                 <div class="form-group">
                     Upload Profile Image
-                    <form:label cssClass="custom-file" path="">
-                        <input type="file" id="file" class="custom-file-input">
+                    <form:label cssClass="custom-file" path="avatar">
+                        <input type="file" id="avatar" name="avatar" class="custom-file-input">
                         <span class="custom-file-control"></span>
                     </form:label>
                 </div>

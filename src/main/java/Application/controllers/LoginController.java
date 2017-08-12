@@ -7,11 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.UUID;
 
@@ -51,11 +53,16 @@ public class LoginController {
     }
 
     @PostMapping("/register/submit/")
-    public String submitUserRegistration(@ModelAttribute("User") User user){
+    public String submitUserRegistration(@ModelAttribute("User") User user, @RequestParam("avatar")MultipartFile file) throws IOException{
 
         //Generate a Random UUID for this new user.
         user.setUserID(UUID.randomUUID().toString());
+
         userService.addUser(user);
+
+        //Multipart file
+        Path path = Paths.get("/Users/aliriano/Desktop/springMVCapp/src/main/profile_pictures/",file.getOriginalFilename());
+        Files.write(path, file.getBytes());
         
         return "redirect:/";
     }

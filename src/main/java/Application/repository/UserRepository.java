@@ -36,7 +36,10 @@ public class UserRepository {
     }
 
     public void addUser(User newUser){
-        System.out.println("User added " + newUser.getUsername());
+        System.out.println("User added " + newUser.getUsername() +
+                " Picture? " + newUser.getAvatar().getOriginalFilename()
+        );
+
         user.add(newUser);
     }
 
