@@ -60,10 +60,6 @@ public class LoginController {
 
         userService.addUser(user);
 
-        //Multipart file
-        Path path = Paths.get("/Users/aliriano/Desktop/springMVCapp/src/main/profile_pictures/",file.getOriginalFilename());
-        Files.write(path, file.getBytes());
-        
         return "redirect:/";
     }
 }

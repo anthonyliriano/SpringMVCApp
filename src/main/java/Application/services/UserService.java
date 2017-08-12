@@ -2,9 +2,15 @@ package Application.services;
 
 import Application.model.User;
 import Application.repository.UserRepository;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 
 /**
@@ -40,7 +46,14 @@ public class UserService {
         return null;
     }
 
-    public void addUser(User user){
+    public void addUser(User user) throws IOException{
+
+       String imageBaseName = "." + FilenameUtils.getExtension(user.getAvatar().getOriginalFilename());
+
+        //Write the Multipart file to profile_pictures
+        Path path = Paths.get("/Users/aliriano/Desktop/springMVCapp/src/main/user_avatars/",user.getUserID() + imageBaseName);
+        Files.write(path, user.getAvatar().getBytes());
+
         userRepository.addUser(user);
     }
 
