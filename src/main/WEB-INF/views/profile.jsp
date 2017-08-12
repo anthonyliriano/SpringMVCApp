@@ -19,11 +19,21 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-12 col-md-auto">
-            <img src="/resources/images/no-avatar.png" class="rounded float-left" alt="...">
-        </div>
+
         <div class="col-4">
-            ${User.getUsername()} <br/>
+            <c:choose>
+                <c:when test="${User.getAvatar() != null}">
+                    <div class="col-12 col-md-auto">
+                        <img src="${User.getAvatar()}" class="rounded float-left" alt="...">
+                    </div>
+                </c:when>
+                <c:when test="${User.getAvatar() == null}">
+                    <div class="col-12 col-md-auto">
+                        <img src="/resources/images/no-avatar.png" class="rounded float-left" alt="...">
+                    </div>
+                </c:when>
+            </c:choose>
+            ${User.getUsername()}
         </div>
     </div>
     <div class="row">
