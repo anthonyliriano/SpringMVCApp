@@ -25,11 +25,12 @@ public class User {
         //No user..
     }
 
-    public User(String userID, String username, String password, String email){
+    public User(String userID, String username, String password, String email, MultipartFile avatar){
         this.userID = userID;
         this.username = username;
         this.password = password;
         this.email = email;
+        this.avatar = avatar;
     }
 
     public String getUserID() {
