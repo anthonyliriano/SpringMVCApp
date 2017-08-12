@@ -20,7 +20,7 @@
 <div class="container">
     <div class="row">
         <div class="col-12 col-md-auto">
-            <img src="/resources/images/blank_image.svg" class="rounded float-left" alt="...">
+            <img src="/resources/images/no-avatar.png" class="rounded float-left" alt="...">
         </div>
         <div class="col-4">
             ${User.getUsername()} <br/>
