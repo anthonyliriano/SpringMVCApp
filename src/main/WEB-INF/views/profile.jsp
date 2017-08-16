@@ -20,11 +20,11 @@
 <div class="container">
     <div class="row">
 
-        <div class="col-4">
+        <div class="col-2">
             <c:choose>
                 <c:when test="${User.getAvatar() != null}">
-                    <div class="col-12 col-md-auto">
-                        <img src="/user_images/${profile_picture}" class="rounded float-left" alt="...">
+                    <div class="">
+                        <img src="/user_images/${profile_picture}" class="img-fluid float-left" alt="profile image">
                     </div>
                 </c:when>
                 <c:when test="${User.getAvatar() == null}">
@@ -33,6 +33,8 @@
                     </div>
                 </c:when>
             </c:choose>
+        </div>
+        <div class="col-4">
             ${User.getUsername()}
         </div>
     </div>
