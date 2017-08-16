@@ -44,7 +44,7 @@ public class UserProfileController {
             model.addAttribute("UserPost", userPosts);
 
         if(user.getAvatar() != null){
-            Path path = Paths.get("/Users/aliriano/user_avatars/");
+            Path path = Paths.get(System.getProperty("user.home")+"/user_avatars/");
             File f = path.toFile();
 
             for(int i = 0; i < f.listFiles().length; i++){
@@ -53,8 +53,6 @@ public class UserProfileController {
                     System.out.println(Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
 
                     model.addAttribute("profile_picture", Arrays.asList(f.listFiles()).get(i).getName());
-                }else{
-                    System.out.println("No image for user..using default image..");
                 }
             }
         }
