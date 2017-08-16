@@ -24,7 +24,7 @@
             <c:choose>
                 <c:when test="${User.getAvatar() != null}">
                     <div class="col-12 col-md-auto">
-                        <img src="${profile_picture}" class="rounded float-left" alt="...">
+                        <img src="/user_images/${profile_picture}" class="rounded float-left" alt="...">
                     </div>
                 </c:when>
                 <c:when test="${User.getAvatar() == null}">

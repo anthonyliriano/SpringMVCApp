@@ -52,15 +52,11 @@ public class UserProfileController {
                 if(FilenameUtils.getBaseName(Arrays.asList(f.listFiles()).get(i).getName()).equals(userID)){
                     System.out.println(Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
 
-                    model.addAttribute("profile_picture", Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
+                    model.addAttribute("profile_picture", Arrays.asList(f.listFiles()).get(i).getName());
                 }else{
                     System.out.println("No image for user..using default image..");
                 }
             }
-
-
-
-
 
             return "profile";
         }
