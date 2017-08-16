@@ -43,8 +43,7 @@ public class UserProfileController {
 
             model.addAttribute("UserPost", userPosts);
 
-        if(user.getAvatar() != null)
-        {
+        if(user.getAvatar() != null){
             Path path = Paths.get("/Users/aliriano/user_avatars/");
             File f = path.toFile();
 
@@ -58,6 +57,8 @@ public class UserProfileController {
                     System.out.println("No image for user..using default image..");
                 }
             }
+        }
+
 
             return "profile";
         }
