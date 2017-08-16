@@ -50,14 +50,10 @@ public class UserProfileController {
             for(int i = 0; i < f.listFiles().length; i++){
                 //If the userID matches a picture.. load picture?
                 if(FilenameUtils.getBaseName(Arrays.asList(f.listFiles()).get(i).getName()).equals(userID)){
-                    System.out.println(Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
-
                     model.addAttribute("profile_picture", Arrays.asList(f.listFiles()).get(i).getName());
                 }
             }
         }
-
-
             return "profile";
         }
 
@@ -95,5 +91,4 @@ public class UserProfileController {
         model.addAttribute("User", user);
      return "edit_profile";
     }
-
 }
