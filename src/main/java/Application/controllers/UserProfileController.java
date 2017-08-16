@@ -43,7 +43,8 @@ public class UserProfileController {
 
             model.addAttribute("UserPost", userPosts);
 
-
+        if(user.getAvatar() != null)
+        {
             Path path = Paths.get("/Users/aliriano/user_avatars/");
             File f = path.toFile();
 
