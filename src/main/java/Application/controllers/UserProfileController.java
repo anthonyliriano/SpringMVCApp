@@ -4,13 +4,18 @@ import Application.model.Post;
 import Application.model.User;
 import Application.services.PostService;
 import Application.services.UserService;
+import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.*;
 import java.security.Principal;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -38,6 +43,25 @@ public class UserProfileController {
 
             model.addAttribute("UserPost", userPosts);
 
+
+            Path path = Paths.get("/Users/aliriano/user_avatars/");
+            File f = path.toFile();
+
+            for(int i = 0; i < f.listFiles().length; i++){
+                //If the userID matches a picture.. load picture?
+                if(FilenameUtils.getBaseName(Arrays.asList(f.listFiles()).get(i).getName()).equals(userID)){
+                    System.out.println(Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
+
+                    model.addAttribute("profile_picture", Arrays.asList(f.listFiles()).get(i).getAbsolutePath());
+                }else{
+                    System.out.println("No image for user..using default image..");
+                }
+            }
+
+
+
+
+
             return "profile";
         }
 
@@ -59,6 +83,8 @@ public class UserProfileController {
         List<Post> userPosts = postService.getPostByUsername(user.getUsername());
 
         model.addAttribute("UserPost", userPosts);
+
+        model.addAttribute("pic",new File("file:/Users/aliriano/user_avatars/"));
 
         return "profile";
     }
