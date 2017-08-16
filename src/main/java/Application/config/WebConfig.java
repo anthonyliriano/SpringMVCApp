@@ -42,6 +42,14 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     @Override
+    public void addResourceHandlers(ResourceHandlerRegistry registry){
+        //Map external resource
+        registry
+                .addResourceHandler("/user_images/**")
+                .addResourceLocations("file:"+System.getProperty("user.home")+"/user_avatars/");
+    }
+
+    @Override
     public void configureDefaultServletHandling(DefaultServletHandlerConfigurer configurer){
         configurer.enable();
     }
