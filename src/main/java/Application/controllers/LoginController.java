@@ -56,7 +56,7 @@ public class LoginController {
     public String submitUserRegistration(@ModelAttribute("User") User user, @RequestParam("avatar")MultipartFile file) throws IOException{
 
         //Generate a Random UUID for this new user.
-        user.setUserID("040b5572-87af-4801-b7a0-7b23ae9c193d");
+        user.setUserID(UUID.randomUUID().toString());
 
         userService.addUser(user);
 
