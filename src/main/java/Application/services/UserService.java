@@ -1,11 +1,16 @@
 package Application.services;
 
+import Application.config.WebSecurityConfig;
 import Application.model.User;
 import Application.repository.UserRepository;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.stereotype.Service;
+import org.springframework.web.context.WebApplicationContext;
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -20,7 +25,6 @@ import java.util.List;
 public class UserService {
     @Autowired
      UserRepository userRepository;
-
 
     public User getUserByUserName(String username){
         //All Users
@@ -53,6 +57,7 @@ public class UserService {
         //Write the Multipart file to profile_pictures
         Path path = Paths.get(System.getProperty("user.home")+"/user_avatars/",user.getUserID() + imageBaseName);
         Files.write(path, user.getAvatar().getBytes());
+
 
         userRepository.addUser(user);
     }

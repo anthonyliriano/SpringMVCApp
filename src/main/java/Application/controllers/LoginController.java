@@ -1,5 +1,6 @@
 package Application.controllers;
 
+import Application.config.WebSecurityConfig;
 import Application.model.User;
 import Application.repository.UserRepository;
 import Application.services.UserService;
@@ -15,6 +16,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.UUID;
 
 
@@ -26,6 +28,9 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    UserDetailsService userDetailsService;
 
     @GetMapping("/login")
     public String getLoginPage(Model model){
@@ -40,7 +45,13 @@ public class LoginController {
 
     @PostMapping("/login/error")
     public String errorLoggingIn(Model model){
-        System.out.println("Whoops!");
+
+        Iterator<User> p =  userService.getAllUsers().iterator();
+        while(p.hasNext()){
+            System.out.println(p.next().getUsername());
+        }
+        //System.out.println(userDetailsService.loadUserByUsername("user"));
+
         model.addAttribute("User", new User());
         model.addAttribute("Error", "error");
         return "login";
